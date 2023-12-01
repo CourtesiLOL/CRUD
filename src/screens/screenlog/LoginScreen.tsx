@@ -25,6 +25,7 @@ function LogScreen(): JSX.Element {
 
         if (await isRegistred(User, pasEncript)) {
             Alert.alert("Se a registrado correctamente")
+            navigation.navigate('Menu' as never)
         } else {
             Alert.alert("Usuario o contraseña incorrectos")
         }
@@ -35,10 +36,7 @@ function LogScreen(): JSX.Element {
                 colors={['darkblue', 'black']}
                 style={loginScreenStyles.container}
             >
-                <Image
-                    source={require('../../images/LogoNexaHome.png')}
-                    style={[{ width: 200, height: 200 }, loginScreenStyles.logoImage]}
-                />
+                <Text style={loginScreenStyles.title}>CRUD</Text>
                 <TextInput
                     placeholder="Usuario"
                     onChangeText={(text) => setUser(text)}

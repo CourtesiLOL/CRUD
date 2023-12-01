@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './screens/screenlog/LoginScreen';
 import Register from './screens/screenlog/RegisterScreen';
+import Menu from './screens/screenmenu/menu';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ function App(): JSX.Element {
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Register" component={Register} />
+          <Stack.Screen name="Menu" component={Menu} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
