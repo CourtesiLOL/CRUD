@@ -66,10 +66,7 @@ function LogScreen(): JSX.Element {
                 colors={['darkblue', 'black']}
                 style={registerScreenStyles.container}
             >
-                <Image
-                    source={require('../../images/LogoNexaHome.png')}
-                    style={[{ width: 200, height: 200 }, registerScreenStyles.logoImage]}
-                />
+                <Text style={registerScreenStyles.title}>CRUD</Text>
                 <TextInput
                     placeholder="Correo Electrónico"
                     keyboardType="email-address"

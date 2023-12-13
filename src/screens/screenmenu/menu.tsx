@@ -59,28 +59,28 @@ function Menu(): JSX.Element {
   };
 
   return (
-    <View style={menuStyle.container}>
+    <View style={[menuStyle.container, { backgroundColor: 'white' }]}>
       {/* Agregar elemento */}
       <View style={menuStyle.inputContainer}>
-        <Text>Add Item:</Text>
+        <Text style={{ color: 'black' }}>Add Item:</Text>
         <TextInput
-          style={menuStyle.input}
+          style={[menuStyle.input, { color: 'black' }]}
           value={newItem}
-          onChangeText={text => setNewItem(text)}
+          onChangeText={(text) => setNewItem(text)}
           placeholder="Enter item name"
         />
         <Button title="Add" onPress={handleAddItem} color="blue" />
       </View>
-
+  
       {/* Lista de elementos */}
       <View style={menuStyle.itemsContainer}>
-        <Text>Items:</Text>
+        <Text style={{ color: 'black' }}>Items:</Text>
         <FlatList
           data={data}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <View style={menuStyle.item}>
-              <Text style={menuStyle.itemName}>{item.name}</Text>
+              <Text style={[menuStyle.itemName, { color: 'black' }]}>{item.name}</Text>
               {/* Botón para editar elemento */}
               <View style={menuStyle.buttonsContainer}>
                 <TouchableHighlight
@@ -91,7 +91,7 @@ function Menu(): JSX.Element {
                     setEditedItemName(item.name);
                   }}
                 >
-                  <Text style={menuStyle.editButtonText}>Edit</Text>
+                  <Text style={[menuStyle.editButtonText, { color: 'black' }]}>Edit</Text>
                 </TouchableHighlight>
                 {/* Botón para eliminar elemento */}
                 <TouchableHighlight
@@ -99,14 +99,14 @@ function Menu(): JSX.Element {
                   underlayColor="#ff0000"
                   onPress={() => handleDeleteItem(item.id)}
                 >
-                  <Text style={menuStyle.deleteButtonText}>Delete</Text>
+                  <Text style={[menuStyle.deleteButtonText, { color: 'black' }]}>Delete</Text>
                 </TouchableHighlight>
               </View>
             </View>
           )}
         />
       </View>
-
+  
       {/* Modal de edición (visible solo cuando se está editando un elemento) */}
       {editingItemId !== null && (
         <Modal
@@ -116,22 +116,27 @@ function Menu(): JSX.Element {
           onRequestClose={() => {}}
         >
           <View style={menuStyle.modalContainer}>
-            <Text>Edit Item:</Text>
+            <Text style={{ color: 'black' }}>Edit Item:</Text>
             <TextInput
-              style={menuStyle.input}
+              style={[menuStyle.input, { color: 'black' }]}
               value={editedItemName}
-              onChangeText={text => setEditedItemName(text)}
+              onChangeText={(text) => setEditedItemName(text)}
               placeholder="Enter edited item name"
             />
             {/* Botón para guardar los cambios */}
             <Button title="Save" onPress={handleEditItem} color="green" />
             {/* Botón para cancelar la edición */}
-            <Button title="Cancel" onPress={() => setEditingItemId(null)} color="red" />
+            <Button
+              title="Cancel"
+              onPress={() => setEditingItemId(null)}
+              color="red"
+            />
           </View>
         </Modal>
       )}
     </View>
   );
+  
 }
 
 export default Menu;

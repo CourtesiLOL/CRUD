@@ -17,6 +17,18 @@ const registerScreenStyles = StyleSheet.create({
         color: 'white',
         borderRadius: 20,
     },
+    title: {
+        height: 100,
+        borderColor: 'white',
+        marginBottom: 10,
+        padding: 6,
+        left:80,
+        bottom: 80,
+        color: 'white',
+        borderRadius: 20,
+        fontSize: 80
+        
+    },
     button: {
         borderRadius: 25,
         paddingVertical: 10,
